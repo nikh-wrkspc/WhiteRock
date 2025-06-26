@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Whiterock</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark-bg: #0d0b14;
+      --primary: #6a0dad;
+      --accent: #bb86fc;
+      --text: #ffffff;
+      --muted: #cccccc;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: var(--dark-bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background: var(--primary);
+      text-align: center;
+      padding: 2rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+    }
+    .login-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    form {
+      background: #1d1b22;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid #2e2a38;
+    }
+    form h2 {
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1.5rem;
+      border: none;
+      border-radius: 6px;
+      background: #2e2a38;
+      color: var(--text);
+    }
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      background: var(--accent);
+      color: black;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #a675f8;
+    }
+    .link {
+      display: block;
+      text-align: center;
+      margin-top: 1rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .link:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background: #1a1a1a;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    footer strong {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Whiterock</h1>
+  </header>
+
+  <div class="login-container">
+    <form action="#" method="post">
+      <h2>Login to Your Account</h2>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Login</button>
+      <a class="link" href="signup.html">Don't have an account? Sign up</a>
+    </form>
+  </div>
+
+  <footer>
+    <p>© 2025 Whiterock. All rights reserved.<br>
+    <strong>Founder & CEO: Nikhil Boddeti</strong></p>
+  </footer>
+</body>
+</html>
+

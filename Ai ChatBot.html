@@ -1,0 +1,137 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whiterock AI Chatbot</title>
+  <style>
+    :root {
+      --dark-bg: #0d0b14;
+      --primary: #6a0dad;
+      --accent: #bb86fc;
+      --text: #ffffff;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text);
+    }
+    .chatbot-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .chatbot-window {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 300px;
+      height: 400px;
+      background: #1f1b2e;
+      border: 1px solid #444;
+      border-radius: 10px;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 999;
+    }
+    .chatbot-header {
+      background: var(--primary);
+      padding: 1rem;
+      text-align: center;
+      font-weight: bold;
+    }
+    .chatbot-messages {
+      flex: 1;
+      padding: 1rem;
+      overflow-y: auto;
+      font-size: 0.9rem;
+    }
+    .chatbot-input {
+      display: flex;
+      border-top: 1px solid #333;
+    }
+    .chatbot-input input {
+      flex: 1;
+      padding: 0.75rem;
+      border: none;
+      background: #2e2a38;
+      color: white;
+    }
+    .chatbot-input button {
+      padding: 0.75rem;
+      background: var(--accent);
+      color: black;
+      border: none;
+      cursor: pointer;
+    }
+    .bot {
+      margin-bottom: 10px;
+      color: #bb86fc;
+    }
+    .user {
+      margin-bottom: 10px;
+      color: #76ffe0;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <button class="chatbot-button" onclick="toggleChatbot()">💬</button>  <div class="chatbot-window" id="chatbot">
+    <div class="chatbot-header">Whiterock Assistant</div>
+    <div class="chatbot-messages" id="chatlog">
+      <div class="bot">Hello! I'm Whiterock's assistant. Ask me anything about our courses!</div>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="userInput" placeholder="Type your message...">
+      <button onclick="sendMessage()">➤</button>
+    </div>
+  </div>  <script>
+    function toggleChatbot() {
+      const chatbot = document.getElementById("chatbot");
+      chatbot.style.display = chatbot.style.display === "flex" ? "none" : "flex";
+    }
+
+    function sendMessage() {
+      const input = document.getElementById("userInput");
+      const chatlog = document.getElementById("chatlog");
+      const message = input.value.trim();
+      if (message === "") return;
+
+      // User message
+      const userMsg = document.createElement("div");
+      userMsg.className = "user";
+      userMsg.textContent = message;
+      chatlog.appendChild(userMsg);
+
+      // Bot response (basic keyword-based)
+      const botMsg = document.createElement("div");
+      botMsg.className = "bot";
+      let response = "I'm still learning. Can you try asking differently?";
+
+      if (message.toLowerCase().includes("html")) {
+        response = "HTML is the structure of web pages. We offer a great course on it!";
+      } else if (message.toLowerCase().includes("python")) {
+        response = "Python is powerful for automation and AI. Our course is perfect for beginners.";
+      } else if (message.toLowerCase().includes("course")) {
+        response = "We offer HTML, CSS, JS, Python, React, and more. Go to the Courses page!";
+      } else if (message.toLowerCase().includes("thanks")) {
+        response = "You're welcome! Let me know if you need anything else.";
+      }
+
+      botMsg.textContent = response;
+      chatlog.appendChild(botMsg);
+      input.value = "";
+      chatlog.scrollTop = chatlog.scrollHeight;
+    }
+  </script></body>
+</html>
